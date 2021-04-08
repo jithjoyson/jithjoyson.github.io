@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2%;
+  font-size: 11px;
+}
+.slide {
+  width: 150vw;
+  height: 100vh;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 400vw;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
+.one {
+  margin-left: 1%;
+  margin-right: 0.5%;
+  width: 30%;
+}
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+::-webkit-scrollbar {
+  display:none;
+}
+.two {
+  background: #a3f3d3;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  width: 30%;
+}
+.three {
+  background: #0bbaa0;
+  padding-right: 0.5%;
+  padding-left: 0.5%;
+  width: 30%;
+}
+.four {
+  background: #00dfdf;
+  padding-left: 0.5%;
+  width: 30%;
+}
+
+
+/*Navigation bar props*/
+/*
+.bnav{
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+color: #333333;
+background: #dddddd; 
+}
+/.bnav__item{
+  position: relative;
+  padding: 10px;
+  float: left;
+  outline: none;
+  display: block;
+}
+.bnav__link{
+  color: #4f6577;
+}
+*/
+/* Place the navbar at the bottom of the page, and make it stick */
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #dddddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/*Flex containers*/
+.flex-container {
+  display: flex;
+  background-color: #a3f3d3;
+  justify-content: center;
+}
+
+.flex-container-about {
+  display: flex;
+  background-color: #ffffff;
+  justify-content: center;
+}
+.flex-container-50 {
+  width: 50%; 
+}
+.flex-container-33 {
+  width: 33%; 
+}
+.flex-container-40-about {
+  width: 37.5%; 
+  background-color: #0bbaa0;
+  margin: 5px;
+  padding: 5px;
+ }
+.flex-container-20-about {
+  width: 22%; 
+  background-color: #0bbaa0;
+  justify-content: center;
+  margin: 5px;
+  padding: 5px;
+}
+.flex-container-about > div {
+  background-color: #0bbaa0;
+  margin: 5px;
+  padding: 5px;
+}
+
+.flex-container > div {
+  background-color: #ffffff;
+  margin: 5px;
+  padding: 5px;
+}
