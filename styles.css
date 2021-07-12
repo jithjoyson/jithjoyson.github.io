@@ -19,9 +19,6 @@ body {
 }
 
 .one {
-  margin-left: 1%;
-  margin-right: 0.5%;
-  width: 30%;
 }
 .outer-wrapper {
   width: 100vh;
@@ -47,20 +44,12 @@ div.content {
 }
 .two {
   background: #a3f3d3;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  width: 30%;
 }
 .three {
   background: #0bbaa0;
-  padding-right: 0.5%;
-  padding-left: 0.5%;
-  width: 30%;
 }
 .four {
   background: #00dfdf;
-  padding-left: 0.5%;
-  width: 30%;
 }
 
 
