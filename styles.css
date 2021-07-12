@@ -5,24 +5,15 @@ body {
   font-size: 11px;
 }
 .slide {
-  width: 150vw;
-  height: 100vh;
-}
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 400vw;
-/*
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-*/
+  width: 100%;
+  height: 100%;
 }
 
 .one {
 }
 .outer-wrapper {
-  width: 100vh;
-  height: 100vw;
+  width: 100%;
+  height: 100%;
  /*
   transform: rotate(-90deg) translateX(-100vh);
   transform-origin: top left;
