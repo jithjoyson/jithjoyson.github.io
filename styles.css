@@ -8,15 +8,16 @@ body {
   width: 150vw;
   height: 100vh;
 }
-/*
 .wrapper {
   display: flex;
   flex-direction: row;
   width: 400vw;
+/*
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
-}
 */
+}
+
 .one {
   margin-left: 1%;
   margin-right: 0.5%;
