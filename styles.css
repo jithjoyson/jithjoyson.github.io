@@ -132,6 +132,7 @@ background: #dddddd;
 .flex-container-33-about{
   width: 33%; 
   background-color: #0bbaa0;
+  justify-content: center;
 }
 
 .flex-container-about > div {
