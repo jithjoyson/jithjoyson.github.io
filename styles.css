@@ -129,6 +129,13 @@ background: #dddddd;
   margin: 5px;
   padding: 5px;
 }
+.flex-container-33-about{
+  width: 33%; 
+  background-color: #0bbaa0;
+  margin: 5px;
+  padding: 5px;
+}
+
 .flex-container-about > div {
   background-color: #0bbaa0;
   margin: 5px;
