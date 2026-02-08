@@ -6,6 +6,169 @@
     <meta name="description" content="Jith Joyson - AI/ML Solutions Architect & Enterprise Architecture specialist with expertise in LLM, RAG, and Digital Transformation">
     <title>Jith Joyson | AI/ML Solutions Architect & Enterprise Architecture</title>
     <link rel="stylesheet" type="text/css" href="./main-styles.css" />
+    
+    <!-- Cookie Consent Banner CSS -->
+    <style>
+    #cookie-consent {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        color: white;
+        padding: 20px;
+        z-index: 10000;
+        display: none;
+    }
+
+    #cookie-consent.show {
+        display: block;
+    }
+
+    #cookie-consent .cookie-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    #cookie-consent p {
+        margin: 0;
+        flex: 1;
+        min-width: 300px;
+        line-height: 1.6;
+    }
+
+    #cookie-consent .cookie-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    #cookie-consent button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    #cookie-consent .accept-btn {
+        background: #4CAF50;
+        color: white;
+    }
+
+    #cookie-consent .accept-btn:hover {
+        background: #45a049;
+    }
+
+    #cookie-consent .decline-btn {
+        background: #f44336;
+        color: white;
+    }
+
+    #cookie-consent .decline-btn:hover {
+        background: #da190b;
+    }
+
+    /* Cookie Settings Button */
+    .cookie-settings-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #0bbaa0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        text-decoration: none;
+    }
+
+    .cookie-settings-btn:hover {
+        background: #099688;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .consent-status {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+
+    .consent-status.granted {
+        background: #4CAF50;
+        color: white;
+    }
+
+    .consent-status.denied {
+        background: #f44336;
+        color: white;
+    }
+
+    .consent-status.not-set {
+        background: #ff9800;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        #cookie-consent .cookie-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        #cookie-consent .cookie-buttons {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+    </style>
+
+    <!-- Google Analytics with Cookie Consent -->
+    <script>
+    // Initialize dataLayer
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Check for existing consent
+    const analyticsConsent = localStorage.getItem('analytics-consent');
+
+    if (analyticsConsent === 'granted') {
+        // User previously accepted - load GA immediately
+        loadGoogleAnalytics();
+    } else if (analyticsConsent === 'denied') {
+        // User previously declined - don't load
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied'
+        });
+    } else {
+        // No previous choice - show banner
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied'
+        });
+    }
+
+    function loadGoogleAnalytics() {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Q3N089QMCN';
+        document.head.appendChild(script);
+        
+        gtag('js', new Date());
+        gtag('config', 'G-Q3N089QMCN');
+        gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+        });
+    }
+    </script>
 </head>
 <body>
     <!-- Language Selector -->
@@ -340,6 +503,16 @@
                             <li data-en="Hosting - " data-de="Hosting - ">Hosting - <a href="https://www.000webhost.com/" target="_blank" rel="noopener">000webhost</a> (<span data-en="now moved to" data-de="jetzt verschoben zu">now moved to</span> <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>)</li>
                         </ol>
                     </article>
+
+                    <article class="tech-credits">
+                        <h3 data-en="Cookie Settings" data-de="Cookie-Einstellungen">Cookie-Einstellungen</h3>
+                        <p data-en="Manage your cookie consent preferences. You can change your decision at any time." data-de="Verwalten Sie Ihre Cookie-Einwilligungspräferenzen. Sie können Ihre Entscheidung jederzeit ändern.">Verwalten Sie Ihre Cookie-Einwilligungspräferenzen. Sie können Ihre Entscheidung jederzeit ändern.</p>
+                        <p>
+                            <strong data-en="Current Status:" data-de="Aktueller Status:">Aktueller Status:</strong>
+                            <span class="consent-status not-set" id="consent-status" data-en="Not Set" data-de="Nicht festgelegt">Nicht festgelegt</span>
+                        </p>
+                        <button class="cookie-settings-btn" onclick="reopenCookieBanner()" data-en="Change Cookie Settings" data-de="Cookie-Einstellungen ändern">Cookie-Einstellungen ändern</button>
+                    </article>
                 </div>
             </section>
         </main>
@@ -352,6 +525,84 @@
         <a href="#about" class="nav-link" data-en="About" data-de="Über mich">About</a>
         <a href="#credits" class="nav-link" data-en="Credits" data-de="Danksagungen">Credits</a>
     </nav>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent">
+        <div class="cookie-content">
+            <p>
+                <strong data-en="🍪 Cookie Notice" data-de="🍪 Cookie-Hinweis">🍪 Cookie-Hinweis</strong><br>
+                <span data-en="We use Google Analytics to understand how visitors interact with our website. This helps us improve your experience. You can accept or decline analytics cookies." data-de="Wir verwenden Google Analytics, um zu verstehen, wie Besucher mit unserer Website interagieren. Dies hilft uns, Ihre Erfahrung zu verbessern. Sie können Analyse-Cookies akzeptieren oder ablehnen.">Wir verwenden Google Analytics, um zu verstehen, wie Besucher mit unserer Website interagieren. Dies hilft uns, Ihre Erfahrung zu verbessern. Sie können Analyse-Cookies akzeptieren oder ablehnen.</span>
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: #4CAF50;" data-en="Privacy Policy" data-de="Datenschutzrichtlinie">Datenschutzrichtlinie</a>
+            </p>
+            <div class="cookie-buttons">
+                <button class="accept-btn" onclick="acceptCookies()" data-en="Accept" data-de="Akzeptieren">Akzeptieren</button>
+                <button class="decline-btn" onclick="declineCookies()" data-en="Decline" data-de="Ablehnen">Ablehnen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Script -->
+    <script>
+    const cookieBanner = document.getElementById('cookie-consent');
+    const cookieAnalyticsConsent = localStorage.getItem('analytics-consent');
+
+    // Show banner if no consent decision has been made
+    if (!cookieAnalyticsConsent) {
+        cookieBanner.classList.add('show');
+    }
+
+    // Update consent status display
+    function updateConsentStatus() {
+        const statusElement = document.getElementById('consent-status');
+        const consent = localStorage.getItem('analytics-consent');
+        
+        if (consent === 'granted') {
+            statusElement.className = 'consent-status granted';
+            statusElement.setAttribute('data-en', 'Accepted');
+            statusElement.setAttribute('data-de', 'Akzeptiert');
+            // Update text based on current language
+            const currentLang = localStorage.getItem('preferredLanguage') || 'de';
+            statusElement.textContent = currentLang === 'en' ? 'Accepted' : 'Akzeptiert';
+        } else if (consent === 'denied') {
+            statusElement.className = 'consent-status denied';
+            statusElement.setAttribute('data-en', 'Declined');
+            statusElement.setAttribute('data-de', 'Abgelehnt');
+            const currentLang = localStorage.getItem('preferredLanguage') || 'de';
+            statusElement.textContent = currentLang === 'en' ? 'Declined' : 'Abgelehnt';
+        } else {
+            statusElement.className = 'consent-status not-set';
+            statusElement.setAttribute('data-en', 'Not Set');
+            statusElement.setAttribute('data-de', 'Nicht festgelegt');
+            const currentLang = localStorage.getItem('preferredLanguage') || 'de';
+            statusElement.textContent = currentLang === 'en' ? 'Not Set' : 'Nicht festgelegt';
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('analytics-consent', 'granted');
+        cookieBanner.classList.remove('show');
+        loadGoogleAnalytics();
+        updateConsentStatus();
+    }
+
+    function declineCookies() {
+        localStorage.setItem('analytics-consent', 'denied');
+        cookieBanner.classList.remove('show');
+        updateConsentStatus();
+    }
+
+    function reopenCookieBanner() {
+        // Remove existing consent to allow user to change decision
+        localStorage.removeItem('analytics-consent');
+        cookieBanner.classList.add('show');
+        updateConsentStatus();
+        // Scroll to top to see the banner
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Initialize consent status on page load
+    updateConsentStatus();
+    </script>
 
     <!-- Language Switcher Script -->
     <script>
@@ -391,6 +642,11 @@
 
             // Store preference
             localStorage.setItem('preferredLanguage', lang);
+            
+            // Update cookie consent status display
+            if (typeof updateConsentStatus === 'function') {
+                updateConsentStatus();
+            }
         }
 
         // Add click listeners to language buttons
