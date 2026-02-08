@@ -242,17 +242,11 @@ body {
 
 .client-list li {
     padding: var(--spacing-xs) 0;
-    padding-left: var(--spacing-md);
-    position: relative;
     font-size: var(--font-size-small);
 }
 
 .client-list li::before {
-    content: "▸";
-    position: absolute;
-    left: 0;
-    color: var(--color-ai-blue);
-    font-weight: bold;
+    content: none;
 }
 
 .about-grid {
@@ -323,7 +317,7 @@ body {
 }
 
 .personal-list li::before {
-    content: "•";
+    content: "+";
     position: absolute;
     left: 0;
     color: var(--color-secondary);
@@ -497,7 +491,7 @@ body {
 }
 
 .current-card ul li::before {
-    content: "▸";
+    content: "+";
     position: absolute;
     left: 0;
     color: var(--color-ai-blue);
@@ -732,7 +726,6 @@ body {
 }
 
 .experience-card ul li,
-.engagement-card ul li,
 .skills-list li,
 .certification-list li {
     padding: var(--spacing-xs) 0;
@@ -740,11 +733,25 @@ body {
     position: relative;
 }
 
+.engagement-card ul li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.engagement-card ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-ai-blue);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
 .experience-card ul li::before,
-.engagement-card ul li::before,
 .skills-list li::before,
 .certification-list li::before {
-    content: "•";
+    content: "+";
     position: absolute;
     left: 0;
     color: var(--color-secondary);
